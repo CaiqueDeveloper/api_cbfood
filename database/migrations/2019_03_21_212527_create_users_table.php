@@ -21,11 +21,10 @@ class CreateUsersTable extends Migration
             ->onDelete('set null');
             $table->string('name');
             $table->string('email')->unique();
-            $table->timestamp('email_verified_at')->nullable();
-            $table->integer('number_phone')->unique();
-            $table->integer('number_phone_alternative')->nullable();
+            $table->bigInteger('number_phone')->unique();
+            $table->bigInteger('number_phone_alternative')->nullable();
             $table->string('password');
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(1);
             $table->rememberToken();
             $table->timestamps();
         });
