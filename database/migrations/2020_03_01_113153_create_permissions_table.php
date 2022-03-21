@@ -14,7 +14,8 @@ class CreatePermissionsTable extends Migration
     public function up()
     {
         Schema::create('permissions', function (Blueprint $table) {
-            $table->id();
+            $table->increments('id');
+
             $table->string('name');
             $table->string('description')->nullable();
             $table->string('url_module')->nullable();
