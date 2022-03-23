@@ -55,5 +55,17 @@ class User extends Authenticatable implements JWTSubject
      */
     public function getJWTCustomClaims() {
         return [];
-    }  
+    } 
+
+    protected static function storage($data){
+    
+        $dataUser = [];
+        $dataUser['name'] = $data['name'];
+        $dataUser['email'] = $data['email'];
+        $dataUser['number_phone'] = $data['number_phone'];
+        $dataUser['number_phone_alternative'] = $data['number_phone_alternative'];
+        $dataUser['password'] = bcrypt($data['password']);
+        
+        return User::create($dataUser);
+    }
 }

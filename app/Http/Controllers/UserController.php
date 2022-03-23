@@ -9,7 +9,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function storageUser(StorageUserRequest $request){
-        
-        User::create($request->all());
+        if(User::storage($request->all()))
+            return response()->json('Parabéns Usuário Cadastrado com Sucesso', 200);
     }
 }
