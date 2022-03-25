@@ -68,4 +68,12 @@ class User extends Authenticatable implements JWTSubject
         
         return User::create($dataUser);
     }
+    protected static function isActive($status){
+        
+        if($status){
+            return true;
+        }else{
+            return false;
+        }
+    }
 }
