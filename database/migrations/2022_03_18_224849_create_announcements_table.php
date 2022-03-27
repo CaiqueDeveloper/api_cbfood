@@ -18,7 +18,7 @@ class CreateAnnouncementsTable extends Migration
 
             $table->string('title');
             $table->string('description')->nullable();
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

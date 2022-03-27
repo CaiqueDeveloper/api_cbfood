@@ -22,7 +22,7 @@ class CreateAddressesTable extends Migration
             $table->string('distric');
             $table->string('road');
             $table->integer('number')->nullable();;
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

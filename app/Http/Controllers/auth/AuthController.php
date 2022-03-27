@@ -25,6 +25,7 @@ class AuthController extends Controller
         }
 
         if(User::isActive(auth()->user()->status)){
+          
             if(Company::isActive(auth()->user()->company_id)){
                 return response()->json([
                     'access_token' => $token,

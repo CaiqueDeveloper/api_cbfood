@@ -18,7 +18,7 @@ class CreateCategoriesTable extends Migration
             $table->morphs('category');
             $table->string('title');
             $table->string('description')->nullable();
-            $table->tinyInteger('status');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

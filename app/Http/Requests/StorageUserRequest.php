@@ -27,8 +27,8 @@ class StorageUserRequest extends FormRequest
             'name' => 'required|min:5|max:100|string',
             'email' => 'required|email|unique:users',
             'number_phone' => 'required|numeric|unique:users',
-            'number_phone_alternative' => 'numeric|max:18',
-            'password' => 'required|confirmed|min:8|max:12|string',
+            'number_phone_alternative' => 'max:18',
+            'password' => 'required|min:8|max:12|string',
         ];
     }
     public function messages()

@@ -9,6 +9,7 @@ use Illuminate\Http\Request;
 class UserController extends Controller
 {
     public function storageUser(StorageUserRequest $request){
+        
         if(User::storage($request->all()))
             return response()->json('Parabéns Usuário Cadastrado com Sucesso', 200);
     }
