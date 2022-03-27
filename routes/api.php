@@ -1,9 +1,11 @@
 <?php
 
+use App\Http\Controllers\AddressController;
 use App\Http\Controllers\AnnouncementController;
 use App\Http\Controllers\auth\AuthController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\UserController;
+use App\Models\Address;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -26,8 +28,12 @@ Route::middleware('auth:api')->group(function () {
     Route::get('/', [AnnouncementController::class, 'getAllAnnoucement']);
     //users
     Route::post('/storageUser', [UserController::class, 'storageUser']);
+    Route::get('/getAddressUser', [UserController::class, 'getAddressUser']);
     //company
     Route::post('/storageCompany', [CompanyController::class, 'storageCompany']);
+    //address
+    Route::post('/storageAddressUser', [AddressController::class, 'storageAddressUser']);
+    Route::post('/storageAddressCompany', [AddressController::class, 'storageAddressCompany']);
     
     
 });

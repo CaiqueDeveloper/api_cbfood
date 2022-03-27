@@ -23,4 +23,8 @@ class Company extends Model
             return false;
         }
     }
+    public function address(){
+
+        return $this->morphMany(Address::class, 'addres_morph');
+    }
 }

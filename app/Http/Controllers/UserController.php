@@ -13,4 +13,10 @@ class UserController extends Controller
         if(User::storage($request->all()))
             return response()->json('Parabéns Usuário Cadastrado com Sucesso', 200);
     }
+    public function getAddressUser(){
+        
+       $user = User::find(auth()->user()->id);
+
+       return $user->address;
+    }
 }
