@@ -81,4 +81,25 @@ class User extends Authenticatable implements JWTSubject
 
         return $this->morphMany(Address::class, 'addres_morph');
     }
+    public function image(){
+        
+        return $this->morphMany(Images::class, 'imagebleMorph');
+    }
+    public static function updateUser($user_id, $data){
+
+        return User::where('id', $user_id)->update($data);
+    }
+    public static function desableOrEnableUser($id){
+
+        $status = (User::find($id)->status) ? 0 : 1;
+        return User::where('id', $id)->update(['status' => $status]);
+    }
+    public static function deleteUser($id){
+
+        return User::where('id', $id)->delete();
+    }
+    public static function updatePassword($user_id, $data){
+        $passwrod = bcrypt($data['password']);
+        return User::where('id', $user_id)->update(['password' => $passwrod]);
+    }
 }
