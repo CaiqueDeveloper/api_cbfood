@@ -13,4 +13,17 @@ class CompanyController extends Controller
         if(Company::storage($request->validated()))
             return response()->json('Parabéns Empresa Cadastrada com Sucesso', 200);
     }
+
+    public function getCompany($id){
+
+        $company = Company::find($id);
+        if(!$company)
+            return response()->json('Opss ! Algo deu errado, não conseguimos localizar essa empresa.', 400);
+
+            return response()->json(compact('company'), 200);
+    }
+
+   public function upateCompany(Request $request){
+       dd($request->all());
+   }
 }

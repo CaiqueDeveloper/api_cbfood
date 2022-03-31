@@ -22,8 +22,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::post('/storageUser', [UserController::class, 'storageUser']);
-Route::post('/storageCompany', [CompanyController::class, 'storageCompany']);
 Route::middleware('auth:api')->group(function () {
 
     //announcements
@@ -41,6 +39,8 @@ Route::middleware('auth:api')->group(function () {
 
     //company
     Route::post('/storageCompany', [CompanyController::class, 'storageCompany']);
+    Route::get('/{id}/getCompany', [CompanyController::class, 'getCompany']);
+    Route::put('/updateCompany', [CompanyController::class, 'updateCompany']);
     //address
     Route::post('/storageAddressUser', [AddressController::class, 'storageAddressUser']);
     Route::post('/storageAddressCompany', [AddressController::class, 'storageAddressCompany']);
