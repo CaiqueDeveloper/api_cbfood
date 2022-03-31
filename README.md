@@ -7,58 +7,52 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## About Laravel
+## Sobre Aplicação
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Essa é uma aplicação desenvolvida com fins didácticos. Onde venho por meio dessa colocar em pratica tudo quanto tenho aprendido dentro do universo da programação. 
+O obijetivo central aqui é criar uma "API" na qual eu consiga através de um front-end desenvolvido em "VUE js" eu consiga estabelecer uma conexão clinte and server. Com esse desafio pretendo sair da minha zona de conforto colocar a mão no código e desenvolver uma aplicação inteira do zero, pretendo no meio desse trajeto de aprendizagem utilizar de várias ferramentas as quais ainda não tive contato com intuito de "mistificar/perder o medo"  de achar que ainda não sei programar, rsrsrsrsrs.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
 
-## Learning Laravel
+## Como Rodar a Aplicação
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Para rodar a plicação em sua maquina local é muito simples, basta seguir os comando a baixo que você logo tera aplicação "API" rodando em sua maquina, para interagir com a API instale um "postman" ou desenvolva um dashboard enquando não fianalizo o front-end.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+1º Abra o terminal, acesse um diretorio de sua preferência de digite o seguinte comando:
+```
+ git clone https://github.com/CaiqueDeveloper/api_cbfood.git
+```
 
-## Laravel Sponsors
+após fazer o clone da aplicação é necessario navegar até dentro da pasta da aplicação, com o console aberto na pasta apalicação
+digite os seguintes comandos:
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+Baixar/Atualizar todas as dependecias da aplicação
+```
+ composer update
+```
+Configurar a Secrret do laravel
+```
+    php artisan key:generate
+```
+Configurar o JWT
+```
+    php artisan jwt:secreet
+```
 
-### Premium Partners
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+Feito dos esses Passos você precisa configurar o arquivo .env com as credencias do seu banco local ou remoto, apos configurar as credencia do banco vamos rodar as nossas migrate com o comando:
+```
+    php artisan migrate
+```
+pronto acabamos de subir todas as nossa tabelas do banco de dados agora vamos rodar as nossa Seeder, para temos acesso aplicação com um usuarios teste. Rode o seguite comando:
 
-## Contributing
+```
+    php artisan db:seed
+```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+Pronto Feito isso já temos nosso usuario teste configurado para fazer nosso login na palicação:
 
-## Code of Conduct
+e-mail:companyteste@gmail.com
+senha: 12345678
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
