@@ -32,10 +32,9 @@ class AuthController extends Controller
                 $response['user'] = auth()->user();
                 $response['user']['address'] = UserController::getAddressUser(auth()->user()->id);
                 $response['user']['comapany'][] = CompanyController::getComapnyUser(auth()->user()->id);
-                return response()->json([
-                    'access_token' => $token,
-                    'token_type' => 'bearer',
-                ]);
+                $response['token'] = $token;
+
+                return response()->json($response);
             }else{
                 return $response['error'] = " Opss! Notamos que a empresa que você está tentando logar se encontra inativa. 
                 Por favor entre em contato com nosso suporte técnico.";
