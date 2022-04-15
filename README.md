@@ -52,7 +52,7 @@ pronto acabamos de subir todas as nossa tabelas do banco de dados agora vamos ro
 
 Pronto Feito isso já temos nosso usuario teste configurado para fazer nosso login na palicação:
 
-e-mail:companyteste@gmail.com
+e-mail: userteste@gmail.com
 senha: 12345678
 
 
