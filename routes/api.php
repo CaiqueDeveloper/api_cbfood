@@ -7,6 +7,7 @@ use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ImagesController;
 use App\Http\Controllers\UserController;
 use App\Models\Address;
+use App\Models\Announcement;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
@@ -21,17 +22,17 @@ use Illuminate\Support\Facades\Route;
 | is assigned the "api" middleware group. Enjoy building your API!
 |
 */
-Route::post('/storageCompany', [CompanyController::class, 'storageCompany']);
-Route::get('/{id}/getUser', [UserController::class, 'getUser']);
+
 Route::middleware('auth:api')->group(function () {
 
     //announcements
     
     Route::get('/', [AnnouncementController::class, 'getAllAnnoucement']);
+    Route::post('/storageAnnouncement', [AnnouncementController::class, 'storageAnnouncement']);
     //users
     Route::post('/storageUser', [UserController::class, 'storageUser']);
     Route::get('/{id}/getAddressUser', [UserController::class, 'getAddressUser']);
-    
+    Route::get('/{id}/getUser', [UserController::class, 'getUser']);
     Route::put('/updateUser', [UserController::class, 'updateUser']);
     Route::put('/{id}/desableUser', [UserController::class, 'desableUser']);
     Route::put('/{id}/enableUser', [UserController::class, 'enableUser']);
@@ -39,9 +40,10 @@ Route::middleware('auth:api')->group(function () {
     Route::put('/updatePassword', [UserController::class, 'updatePassword']);
 
     //company
-    
+    Route::post('/storageCompany', [CompanyController::class, 'storageCompany']);
     Route::get('/{id}/getCompany', [CompanyController::class, 'getCompany']);
     Route::put('/updateCompany', [CompanyController::class, 'updateCompany']);
+    Route::put('/{id}/desableCompany', [UserController::class, 'desableCompany']);
     //address
     Route::post('/storageAddressUser', [AddressController::class, 'storageAddressUser']);
     Route::post('/storageAddressCompany', [AddressController::class, 'storageAddressCompany']);

@@ -14,4 +14,7 @@ class AnnouncementController extends Controller
             'content' => 'Hello my firend'
             ]];
     }
+    public function storageAnnouncement(Request $request){
+        dd($request->all());
+    }
 }

@@ -26,4 +26,8 @@ class CompanyController extends Controller
    public function upateCompany(Request $request){
        dd($request->all());
    }
+
+   public function getComapnyUser($id){
+       return self::getCompany(1);
+   }
 }

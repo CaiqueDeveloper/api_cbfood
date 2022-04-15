@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\auth;
 
 use App\Http\Controllers\Controller;
+use App\Http\Controllers\UserController;
 use App\Http\Requests\LoginRequest;
 use App\Models\Company;
 use App\Models\User;
@@ -27,6 +28,10 @@ class AuthController extends Controller
         if(User::isActive(auth()->user()->status)){
           
             if(Company::isActive(auth()->user()->company_id)){
+
+                $response['user'] = auth()->user();
+                $response['user']['address'] = UserController::getAddressUser(auth()->user()->id);
+                $response['user']['comapany'][] = CompanyController::getComapnyUser(auth()->user()->id);
                 return response()->json([
                     'access_token' => $token,
                     'token_type' => 'bearer',
